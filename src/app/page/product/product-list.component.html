@@ -1,0 +1,19 @@
+<h2>Produtos</h2>
+
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Preço</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for (p of products$ | async; track $index) {
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price | currency:'BRL' }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
