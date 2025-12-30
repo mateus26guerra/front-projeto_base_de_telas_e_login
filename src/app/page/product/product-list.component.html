@@ -20,18 +20,24 @@
 
 <hr />
 
-<h3>Adicionar Produto (ADMIN)</h3>
+<h3>Adicionar Produto</h3>
 
 <form (ngSubmit)="addProduct()">
-  <div>
-    <label>Nome:</label>
-    <input type="text" [(ngModel)]="name" name="name" required />
-  </div>
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="name"
+    placeholder="Nome"
+    required
+  />
 
-  <div>
-    <label>Preço:</label>
-    <input type="number" [(ngModel)]="price" name="price" required />
-  </div>
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="price"
+    placeholder="Preço"
+    required
+  />
 
   <button type="submit">Adicionar</button>
 </form>

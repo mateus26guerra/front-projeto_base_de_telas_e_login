@@ -12,29 +12,23 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent {
 
-  products$: Observable<any[]>;
+  products$!: Observable<any[]>; // 👈 só declara
 
   name = '';
   price!: number;
 
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getAll();
+    // 👇 agora SIM, o service já existe
+    this.products$ = this.productService.products$;
   }
 
   addProduct() {
-    const product = {
+    this.productService.addProduct({
       name: this.name,
       price: this.price
-    };
-
-    this.productService.addProduct(product).subscribe({
-      next: () => {
-        alert('Produto adicionado com sucesso!');
-        this.products$ = this.productService.getAll(); // 🔄 recarrega lista
-        this.name = '';
-        this.price = 0;
-      },
-      error: () => alert('Erro ao adicionar produto')
     });
+
+    this.name = '';
+    this.price = 0;
   }
 }
