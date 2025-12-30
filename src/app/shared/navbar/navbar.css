@@ -1,0 +1,45 @@
+/* usa a mesma fonte do projeto */
+.navbar {
+  height: 64px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  /* sombra igual aos cards */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #2fb7c1; /* mesma cor do preço */
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #26a5ae;
+  transform: translateY(-1px);
+}

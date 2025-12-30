@@ -1,43 +1,36 @@
-<h2>Produtos</h2>
+<app-navbar></app-navbar>
+<div class="product-container">
+  <div class="product-card">
+    <h3>Adicionar Produto</h3>
 
-<table class="product-table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Preço</th>
-    </tr>
-  </thead>
+    <form (ngSubmit)="addProduct()">
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        placeholder="Nome do produto"
+        required
+      />
 
-  <tbody>
-    @for (p of products$ | async; track $index) {
-      <tr>
-        <td>{{ p.name }}</td>
-        <td>{{ p.price | currency:'BRL' }}</td>
-      </tr>
-    }
-  </tbody>
-</table>
+      <input
+        type="number"
+        name="price"
+        [(ngModel)]="price"
+        placeholder="Preço"
+        required
+      />
 
-<hr />
+      <input
+        type="text"
+        name="imagemUrl"
+        [(ngModel)]="imagemUrl"
+        placeholder="URL da imagem"
+        required
+      />
 
-<h3>Adicionar Produto</h3>
+      <button type="submit">Adicionar</button>
+    </form>
+  </div>
+</div>
 
-<form (ngSubmit)="addProduct()">
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="name"
-    placeholder="Nome"
-    required
-  />
-
-  <input
-    type="number"
-    name="price"
-    [(ngModel)]="price"
-    placeholder="Preço"
-    required
-  />
-
-  <button type="submit">Adicionar</button>
-</form>
+<app-lista-de-produto></app-lista-de-produto>

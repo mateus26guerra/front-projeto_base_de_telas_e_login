@@ -1,0 +1,12 @@
+
+<h2>Produtos Disponíveis</h2>
+
+<div class="products">
+  @for (p of products$ | async; track $index) {
+    <div class="card">
+      <img [src]="p.imagemUrl" alt="{{ p.name }}" />
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.price | currency:'BRL' }}</p>
+    </div>
+  }
+</div>
