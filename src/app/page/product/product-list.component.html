@@ -17,3 +17,21 @@
     }
   </tbody>
 </table>
+
+<hr />
+
+<h3>Adicionar Produto (ADMIN)</h3>
+
+<form (ngSubmit)="addProduct()">
+  <div>
+    <label>Nome:</label>
+    <input type="text" [(ngModel)]="name" name="name" required />
+  </div>
+
+  <div>
+    <label>Preço:</label>
+    <input type="number" [(ngModel)]="price" name="price" required />
+  </div>
+
+  <button type="submit">Adicionar</button>
+</form>

@@ -8,8 +8,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-getAll() {
-  return this.http.get<any[]>('http://localhost:8080/products');
-}
+  getAll() {
+    return this.http.get<any[]>(this.API);
+  }
 
+  addProduct(product: { name: string; price: number }) {
+    return this.http.post(`${this.API}/add_products`, product);
+  }
 }
