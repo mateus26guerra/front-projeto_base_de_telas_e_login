@@ -16,19 +16,42 @@ export class AuthService {
         password
       })
       .pipe(
-        tap(res => sessionStorage.setItem('token', res.token)) // 👈 AQUI
+        tap(res => sessionStorage.setItem('token', res.token))
       );
   }
 
   getToken() {
-    return sessionStorage.getItem('token'); // 👈 AQUI
+    return sessionStorage.getItem('token');
   }
 
   logout() {
-    sessionStorage.clear(); // 👈 LIMPA TUDO
+    sessionStorage.clear();
   }
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     return !!this.getToken();
   }
+
+isAdmin(): boolean {
+  const token = this.getToken();
+  if (!token) return false;
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.role === 'ADMIN' || payload.roles?.includes('ADMIN');
+  } catch {
+    return false;
+  }
+}
+
+
+  register(login: string, password: string, role: 'ADMIN' | 'USER') {
+  return this.http.post(`${this.API}/auth/register`, {
+    login,
+    password,
+    role
+  });
+}
+
+  
 }

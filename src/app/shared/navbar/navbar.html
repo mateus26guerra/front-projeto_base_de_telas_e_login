@@ -4,16 +4,27 @@
   </div>
 
   <div class="actions">
-    <!-- 👇 SÓ MOSTRA LOGIN SE NÃO ESTIVER LOGADO -->
+
+    <!-- 🔓 NÃO LOGADO -->
     @if (!authService.isAuthenticated()) {
       <a routerLink="/login" class="login-btn">Login</a>
     }
 
-    <!-- 👇 SÓ MOSTRA LOGOUT SE ESTIVER LOGADO -->
+    <!-- 🔐 LOGADO -->
     @if (authService.isAuthenticated()) {
-      <button class="login-btn" (click)="logout()">
-        Logout
-      </button>
+      <button class="login-btn" (click)="logout()">Logout</button>
     }
+
+    <!-- 👑 SOMENTE ADMIN -->
+    @if (authService.isAdmin()) {
+      <a routerLink="/AddUsuario" class="login-btn">
+        Criar Usuário
+      </a>
+    }  @if (authService.isAdmin()) {
+      <a routerLink="/products" class="login-btn">
+        Adicionar Roupa
+      </a>
+    }
+
   </div>
 </nav>

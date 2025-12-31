@@ -18,9 +18,10 @@ export class ProductListComponent {
 
   products$!: Observable<Product[]>;
 
+  
   name = '';
   price!: number;
-  imagemUrl = '';
+  imagemUrl = ''
 
   constructor(private productService: ProductService) {
     this.products$ = this.productService.products$;

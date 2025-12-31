@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 export interface Product {
+   id: number;          // 👈 OBRIGATÓRIO
   name: string;
   price: number;
   imagemUrl: string;
@@ -37,11 +38,25 @@ export class ProductService {
       });
   }
 
-  addProduct(product: Product) {
+
+
+     // ✅ CREATE → SEM ID
+  addProduct(product: Omit<Product, 'id'>) {
     this.http
       .post(`${this.API_PRIVADA}/add_products`, product)
       .subscribe(() => {
         this.loadPrivateProducts();
       });
   }
+  
+
+ deleteProduct(id: number) {
+  return this.http
+    .delete(`${this.API_PRIVADA}/${id}`)
+    .subscribe(() => {
+      this.loadPrivateProducts(); // recarrega lista
+    });
+}
+
+
 }
