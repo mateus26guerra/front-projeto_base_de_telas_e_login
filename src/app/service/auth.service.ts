@@ -16,16 +16,16 @@ export class AuthService {
         password
       })
       .pipe(
-        tap(res => localStorage.setItem('token', res.token))
+        tap(res => sessionStorage.setItem('token', res.token)) // 👈 AQUI
       );
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token'); // 👈 AQUI
   }
 
   logout() {
-    localStorage.removeItem('token');
+    sessionStorage.clear(); // 👈 LIMPA TUDO
   }
 
   isAuthenticated() {
