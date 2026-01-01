@@ -11,10 +11,41 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.css',
 })
 export class Navbar {
+  
+  isOpen = false; // 👈 CONTROLE DA SIDEBAR
+
+  showLogoutModal = false;
+  closing = false;
   constructor(public authService: AuthService) {} // 👈 PUBLIC para usar no template
 
   logout() {
     this.authService.logout();
     location.href = '/'; // 👈 vai pra home (lista pública)
   }
+
+    abrirLogout() {
+    this.showLogoutModal = true;
+  }
+
+    cancelarLogout() {
+    this.closing = true;
+
+    setTimeout(() => {
+      this.showLogoutModal = false;
+      this.closing = false;
+    }, 250);
+  }
+
+
+confirmarLogout() {
+  this.closing = true;
+
+  setTimeout(() => {
+    this.authService.logout();
+    this.showLogoutModal = false;
+    this.closing = false;
+    location.href = '/';
+  }, 250);
+}
+
 }

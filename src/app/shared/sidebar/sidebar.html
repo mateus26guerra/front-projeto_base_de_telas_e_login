@@ -1,4 +1,7 @@
-<aside class="sidebar">
+<aside
+  class="sidebar"
+  [class.open]="isOpen"
+  (click)="$event.stopPropagation()">
 
   <div class="logo" routerLink="/">
     🛍️ Loja Top
@@ -6,35 +9,41 @@
 
   <nav class="menu">
 
-    <!-- SEM LOGIN -->
-    @if (!authService.isAuthenticated()) {
-      <a routerLink="/login">🔐 Login</a>
-    }
-
-    <!-- LOGADO -->
     @if (authService.isAuthenticated()) {
       <div class="user">
         👋 Olá, <strong>{{ authService.getUserName() }}</strong>
       </div>
-
-      <a routerLink="/">🏠 Início</a>
 
       @if (authService.isAdmin()) {
         <a routerLink="/AddUsuario">👤 Usuários</a>
         <a routerLink="/products">👕 Produtos</a>
       }
 
-      <button class="logout-btn" (click)="abrirLogout()">
-        🚪 Sair
+      <!-- FECHA SIDEBAR -->
+      <button class="logout-btn" (click)="fecharSidebar()">
+        ❌ Fechar menu
       </button>
+
     }
 
   </nav>
 </aside>
 
-<!-- MODAL DE LOGOUT -->
+<div
+  class="overlay"
+  *ngIf="isOpen"
+  (click)="fecharSidebar()">
+</div>
+
+<button 
+  class="toggle-btn"
+  *ngIf="!isOpen"
+  (click)="abrirSidebar()">
+  ☰
+</button>
+
 @if (showLogoutModal) {
-  <div class="modal-backdrop">
+  <div class="modal-backdrop" [class.closing]="closing">
     <div class="modal">
       <h3>Confirmar saída</h3>
       <p>Tem certeza que deseja sair da sua conta?</p>

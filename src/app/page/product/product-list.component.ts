@@ -5,11 +5,12 @@ import { ProductService, Product } from '../../service/product.service';
 import { Observable } from 'rxjs';
 import { Navbar } from "../../shared/navbar/navbar";
 import { ListaDeProduto } from "../../shared/lista-de-produto/lista-de-produto";
+import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule, Navbar, ListaDeProduto],
+  imports: [CommonModule, FormsModule, Navbar, ListaDeProduto, SidebarComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product.css',
 

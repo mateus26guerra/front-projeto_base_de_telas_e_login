@@ -12,20 +12,40 @@ import { AuthService } from '../../service/auth.service';
 })
 export class SidebarComponent {
 
+  isOpen = true;
+
   showLogoutModal = false;
+  closing = false;
 
   constructor(public authService: AuthService) {}
+
+  abrirSidebar() {
+    this.isOpen = true;
+  }
+
+  fecharSidebar() {
+    this.isOpen = false;
+  }
 
   abrirLogout() {
     this.showLogoutModal = true;
   }
 
   cancelarLogout() {
-    this.showLogoutModal = false;
+    this.closing = true;
+
+    setTimeout(() => {
+      this.showLogoutModal = false;
+      this.closing = false;
+    }, 250);
   }
 
   confirmarLogout() {
-    this.authService.logout();
-    location.href = '/';
+    this.closing = true;
+
+    setTimeout(() => {
+      this.authService.logout();
+      location.href = '/';
+    }, 250);
   }
 }

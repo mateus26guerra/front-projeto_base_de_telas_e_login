@@ -13,21 +13,26 @@
     <!-- 🔐 LOGADO -->
     @if (authService.isAuthenticated()) {
       <span class="user-name">
-        Olá, {{ authService.getUserName() }} 👋
+        Olá, {{ authService.getUserName() }}
       </span>
 
-      <button class="login-btn" (click)="logout()">Logout</button>
+      <button class="login-btn" (click)="abrirLogout()">Sair</button>
     }
 
-    <!-- 👑 SOMENTE ADMIN -->
-    @if (authService.isAdmin()) {
-      <a routerLink="/AddUsuario" class="login-btn">
-        Criar Usuário
-      </a>
-      <a routerLink="/products" class="login-btn">
-        Adicionar Roupa
-      </a>
-    }
 
   </div>
 </nav>
+
+@if (showLogoutModal) {
+  <div class="modal-backdrop" [class.closing]="closing">
+    <div class="modal">
+      <h3>Confirmar saída</h3>
+      <p>Tem certeza que deseja sair da sua conta?</p>
+
+      <div class="modal-actions">
+        <button class="cancel" (click)="cancelarLogout()">Cancelar</button>
+        <button class="confirm" (click)="confirmarLogout()">Sair</button>
+      </div>
+    </div>
+  </div>
+}

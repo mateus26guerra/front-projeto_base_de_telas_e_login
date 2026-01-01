@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { User, UserAdminService } from '../../service/UserAdmin.service';
 import { AddUsuario } from "../../shared/add-usuario/add-usuario";
+import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-admin-users',
   standalone: true,
-  imports: [CommonModule, FormsModule, AddUsuario],
+  imports: [CommonModule, FormsModule, AddUsuario, SidebarComponent],
   templateUrl: './admin-users.html',
   styleUrl: './admin-users.css',
 })
