@@ -1,0 +1,48 @@
+<aside class="sidebar">
+
+  <div class="logo" routerLink="/">
+    🛍️ Loja Top
+  </div>
+
+  <nav class="menu">
+
+    <!-- SEM LOGIN -->
+    @if (!authService.isAuthenticated()) {
+      <a routerLink="/login">🔐 Login</a>
+    }
+
+    <!-- LOGADO -->
+    @if (authService.isAuthenticated()) {
+      <div class="user">
+        👋 Olá, <strong>{{ authService.getUserName() }}</strong>
+      </div>
+
+      <a routerLink="/">🏠 Início</a>
+
+      @if (authService.isAdmin()) {
+        <a routerLink="/AddUsuario">👤 Usuários</a>
+        <a routerLink="/products">👕 Produtos</a>
+      }
+
+      <button class="logout-btn" (click)="abrirLogout()">
+        🚪 Sair
+      </button>
+    }
+
+  </nav>
+</aside>
+
+<!-- MODAL DE LOGOUT -->
+@if (showLogoutModal) {
+  <div class="modal-backdrop">
+    <div class="modal">
+      <h3>Confirmar saída</h3>
+      <p>Tem certeza que deseja sair da sua conta?</p>
+
+      <div class="modal-actions">
+        <button class="cancel" (click)="cancelarLogout()">Cancelar</button>
+        <button class="confirm" (click)="confirmarLogout()">Sair</button>
+      </div>
+    </div>
+  </div>
+}

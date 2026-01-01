@@ -1,0 +1,87 @@
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #1e1e2f;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.menu a,
+.menu button {
+  display: block;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu button:hover {
+  background: #343454;
+}
+
+.user {
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* LOGOUT */
+.logout-btn {
+  color: #ff6b6b;
+}
+
+/* MODAL */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  color: #333;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel {
+  background: #ccc;
+}
+
+.confirm {
+  background: #ff4d4d;
+  color: #fff;
+}

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-usuario',
-  imports: [CommonModule,Navbar,FormsModule],
+  imports: [CommonModule, Navbar, FormsModule],
   templateUrl: './add-usuario.html',
   styleUrl: './add-usuario.css',
 })
