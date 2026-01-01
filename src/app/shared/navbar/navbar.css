@@ -43,3 +43,7 @@
   background-color: #26a5ae;
   transform: translateY(-1px);
 }
+.user-name {
+  margin-right: 10px;
+  font-weight: bold;
+}

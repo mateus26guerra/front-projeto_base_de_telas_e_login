@@ -12,6 +12,10 @@
 
     <!-- 🔐 LOGADO -->
     @if (authService.isAuthenticated()) {
+      <span class="user-name">
+        Olá, {{ authService.getUserName() }} 👋
+      </span>
+
       <button class="login-btn" (click)="logout()">Logout</button>
     }
 
@@ -20,7 +24,6 @@
       <a routerLink="/AddUsuario" class="login-btn">
         Criar Usuário
       </a>
-    }  @if (authService.isAdmin()) {
       <a routerLink="/products" class="login-btn">
         Adicionar Roupa
       </a>
