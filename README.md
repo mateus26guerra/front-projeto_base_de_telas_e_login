@@ -19,9 +19,12 @@ Este projeto é um **sistema web completo**, dividido em **frontend (Angular 16+
 
 O objetivo é fornecer uma **base sólida** para aplicações web que precisem de login seguro, controle de permissões e gerenciamento de produtos.
 
-Link do back-end -> https://github.com/mateus26guerra/projeto_base_de_telas_e_login
-link do video do projeto -> https://www.youtube.com/watch?v=QNbRW_KyXCE&feature=youtu.be
 ---
+
+Link do back-end -> https://github.com/mateus26guerra/projeto_base_de_telas_e_login
+
+link do video do projeto -> https://www.youtube.com/watch?v=QNbRW_KyXCE&feature=youtu.be
+
 
 ## 👥 Tipos de Usuários
 
